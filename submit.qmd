@@ -1,7 +1,9 @@
 ---
 title: "Midterm 1"
-format: html
-editor: visual
+author: "Shirley Li"
+format:
+  html:
+    embed-resources: true
 ---
 
 ## Introduction
@@ -32,7 +34,15 @@ For the purpose of this project and research question, I will be focusing on sel
 #Read data 
 library(readr)
 
-data <- read_csv("/Users/shirleyli/Desktop/Med_School/USC/MPH/Fall_2023/PM566_DataScience/Midterm/Mental_Health_Care_in_the_Last_4_Weeks.csv")
+download.file(
+"https://data.cdc.gov/api/views/yni7-er2q/rows.csv?accessType=DOWNLOAD",
+destfile = "data.gz",
+method = "libcurl",
+timeout = 60
+)
+
+data <- read_csv("data.gz")
+
 nrow(data)
 ncol(data)
 ```
